@@ -76,7 +76,7 @@ public class PZ_4_Ouija : IT_Interactivo
 			{
 				AsignarTrozo();
 			}
-			else
+			else if (!_completado)
 			{
 				UI_Canvas.canvas.observacion.Observar(observacion);
 			}

@@ -23,6 +23,7 @@ public class ES_EstadoEscena : MonoBehaviour
 	private void Awake()
 	{
 		estadoEscena = this;
+		Application.targetFrameRate = 300;
 	}
 
 	public void SumarVida()

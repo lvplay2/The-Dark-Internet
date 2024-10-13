@@ -43,8 +43,11 @@ public class EN_Voces : MonoBehaviour
 			switch (_accion)
 			{
 			case EN_Enemigo.Accion.Patrullar:
-				clip = ObtenerVoces().patrullar.Random().audios.Random();
+			{
+				ES_EstadoJuego.Dificultad value = ES_EstadoJuego.estadoJuego.dificultad.Value;
+				clip = (((value != ES_EstadoJuego.Dificultad.Dificil && value != 0 && value != ES_EstadoJuego.Dificultad.Fantasma) || Random.Range(0, 5) != 0) ? ObtenerVoces().patrullar.Random().audios.Random() : ObtenerVoces().patrullarConGatos.Random().audios.Random());
 				break;
+			}
 			case EN_Enemigo.Accion.Perseguir:
 				clip = ObtenerVoces().perseguir.Random().audios.Random();
 				break;
@@ -74,6 +77,15 @@ public class EN_Voces : MonoBehaviour
 				break;
 			case EN_Enemigo.EventoEspecial.EscucharCrujido:
 				clip = ObtenerVoces().escucharCrujido.Random().audios.Random();
+				break;
+			case EN_Enemigo.EventoEspecial.GatoAtaca:
+				clip = ObtenerVoces().gatoAtaca.Random().audios.Random();
+				break;
+			case EN_Enemigo.EventoEspecial.GatoMuere:
+				clip = ObtenerVoces().gatoMuere.Random().audios.Random();
+				break;
+			case EN_Enemigo.EventoEspecial.PatrullaConGatos:
+				clip = ObtenerVoces().patrullarConGatos.Random().audios.Random();
 				break;
 			}
 		}
@@ -123,5 +135,9 @@ public class EN_Voces : MonoBehaviour
 	private void Update()
 	{
 		musicaPersecucion.volumen = Mathf.Lerp(musicaPersecucion.volumen, _musicaActivada ? 0.2f : 0f, _musicaActivada ? (3f * Time.deltaTime) : (0.5f * Time.deltaTime));
+		if (audioEnemigo.isPlaying && enemigo._neutralizado)
+		{
+			audioEnemigo.Stop();
+		}
 	}
 }

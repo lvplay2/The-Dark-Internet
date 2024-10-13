@@ -20,15 +20,15 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 5d5fef52ab82edb4db32dde2ca0081a3, type: 2}
+      value: {fileID: 21300000, guid: 68adc8da3272c604e9e4bab01638cc49, type: 2}
     - time: 0.033333335
-      value: {fileID: 21300000, guid: ca4989997fa2cf843a241f353fc270e5, type: 2}
+      value: {fileID: 21300000, guid: 51634ffd04f049e48a577079f219ddc4, type: 2}
     - time: 0.06666667
-      value: {fileID: 21300000, guid: ca4989997fa2cf843a241f353fc270e5, type: 2}
+      value: {fileID: 21300000, guid: 51634ffd04f049e48a577079f219ddc4, type: 2}
     - time: 0.1
-      value: {fileID: 21300000, guid: 96d2f2771dc948945a4ba6ac7363534f, type: 2}
+      value: {fileID: 21300000, guid: 078db9a85c78feb4db9db1716c32626f, type: 2}
     - time: 0.13333334
-      value: {fileID: 21300000, guid: b31ea702d5640d740b21f4a9c10ee55f, type: 2}
+      value: {fileID: 21300000, guid: 7bfbe670d40fdaf469b2f2f3a52f9f7d, type: 2}
     attribute: script_0x7822D856_UsmorHH
     path:
     classID: 114
@@ -48,11 +48,11 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 5d5fef52ab82edb4db32dde2ca0081a3, type: 2}
-    - {fileID: 21300000, guid: ca4989997fa2cf843a241f353fc270e5, type: 2}
-    - {fileID: 21300000, guid: ca4989997fa2cf843a241f353fc270e5, type: 2}
-    - {fileID: 21300000, guid: 96d2f2771dc948945a4ba6ac7363534f, type: 2}
-    - {fileID: 21300000, guid: b31ea702d5640d740b21f4a9c10ee55f, type: 2}
+    - {fileID: 21300000, guid: 68adc8da3272c604e9e4bab01638cc49, type: 2}
+    - {fileID: 21300000, guid: 51634ffd04f049e48a577079f219ddc4, type: 2}
+    - {fileID: 21300000, guid: 51634ffd04f049e48a577079f219ddc4, type: 2}
+    - {fileID: 21300000, guid: 078db9a85c78feb4db9db1716c32626f, type: 2}
+    - {fileID: 21300000, guid: 7bfbe670d40fdaf469b2f2f3a52f9f7d, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

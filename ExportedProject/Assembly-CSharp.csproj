@@ -53,9 +53,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Assembly-CSharp\ActDificultad.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\AdEventBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\ADS_Anuncios.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\Advertisements.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\Advertiser.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\AlphaControll.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\AN_PingPongColor.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\AnunciosAviso.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Archivo.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\Bake.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\BannerPosition.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\BannerType.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Boton.cs" />
@@ -68,11 +75,13 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\DR_Dron.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\DR_Iman.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\DR_Llave.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\EasyGoogleMobileAds.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\EC_Camara.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\EC_Collider.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ED_Renombrar.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Editor_Controlador.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\EJ_Observar.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\Ejemplo.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\EN_Enemigo.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\EN_Mandibula.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\EN_Menu.cs" />
@@ -98,13 +107,15 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_EstadoEscena.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_EstadoJuego.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_ExtrasSkin.cs" />
-     <Compile Include="Assets\Scripts\Assembly-CSharp\ES_HuevosDeOro_Contenedor.cs" />
-     <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Poder_Contenedor.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Logro_Contenedor.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Logros_Activador.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Skin_Contenedor.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Tags.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\EV_Desactivar.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\EX_CopiarTransform_Eje_Y.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\FL_Final_Normal.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Footsteps.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\ForzarPatrulla.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\FP_Button.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\FP_CameraLook.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\FP_Controller.cs" />
@@ -114,7 +125,60 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\FP_Joystick.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\FP_Lookpad.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\GDPRConsent.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\AdOrder.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\AdSettings.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\AdTypeSettings.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\AdvertiserId.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\AdvertiserSettings.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\CustomAdColony.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\CustomAdmob.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\CustomAppLovin.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\CustomChartboost.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\CustomHeyzap.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\CustomUnityAds.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\CustomVungle.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\ICustomAds.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\MediationSettings.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\MediationTypes.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\PlatformSettings.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\ScreenWriter.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\SupportedAdvertisers.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\SupportedMediation.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GleyMobileAds\SupportedPlatforms.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Android\AdLoaderClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Android\BannerClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Android\CustomNativeTemplateClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Android\InterstitialClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Android\MobileAdsClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Android\RewardBasedVideoAdClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Android\Utils.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\AdFailedToLoadEventArgs.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\AdLoader.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\AdPosition.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\AdRequest.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\AdSize.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\BannerView.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\CustomNativeEventArgs.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\CustomNativeTemplateAd.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\Gender.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\InterstitialAd.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\MobileAds.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\NativeAdType.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\Reward.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Api\RewardBasedVideoAd.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\DummyClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\IAdLoaderClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\IBannerClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\ICustomNativeTemplateClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\IInterstitialClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\IMobileAdsClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\IRewardBasedVideoAdClient.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\MobileAdsEventExecutor.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\Common\Utils.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GoogleMobileAds\GoogleMobileAdsClientFactory.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\GR_CopiarTransform.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\GT_Gato.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\HauntedVentriloquistSound.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\HeadBob.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\hlos.cs" />
@@ -123,12 +187,17 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\IN_INombre.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\IN_IPoder.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\IN_ISkin.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\InitializeGleyAds.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Inputs.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\Interstitial.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\InterstitialManager.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\IT_Cajon.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\IT_Cartera.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\IT_Interactivo.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\IT_Puerta.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\IT_Recogible.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\IT_Remarcar.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\IT_Remarcar_SASA.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\IT_SoloObservar.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\JG_AnimacionMorir.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\JG_Brazo.cs" />
@@ -139,8 +208,10 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\JG_Jugador.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\JG_Vision.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\MC_Muñeco.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\MetodosDeExtension.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\MonoPInvokeCallbackAttribute.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\MS_MusicaPersecucion.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\MusicaAleatoria.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Nombrar.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Nombrar2.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\OJ_Contenido.cs" />
@@ -188,7 +259,6 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\Skin_Informaicion.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Sonidos.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ST_Audio.cs" />
-     <Compile Include="Assets\Scripts\Assembly-CSharp\ST_AudioHD.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ST_Capturador.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ST_Datos.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ST_Utilidades.cs" />
@@ -216,9 +286,11 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Disparar.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Entrar.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_EscenaJuego.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\UI_GanarLogros.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Gancho.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Indicador.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Iniciar_Escena_Juego.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Logro.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Mano.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Observacion.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_OpcionesDePrivacidad.cs" />
@@ -229,6 +301,7 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Skin.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Usar.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Ver_Comic.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\UI_VisualizadorLogros.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_VisualizadorSkins.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\UI_Volante.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\VHS_Effect.cs" />
@@ -237,6 +310,7 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\WindZoneController.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ZC_ZonaCrujido.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ZC_ZonasDeCrujido.cs" />
+     <None Include="Assets\Shader\Outlined_Silhouette Only.shader" />
  <Reference Include="UnityEngine.AIModule">
  <HintPath>G:/Unity Hub/Editor/2018.4.36f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>
@@ -793,12 +867,18 @@
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{BC3C38AE-ED04-B288-BA63-7F92E64B03B8}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Unity.Analytics.StandardEvents.csproj">
-      <Project>{92F804DB-07BC-E27A-47FD-32297C4876FD}</Project>      <Name>Unity.Analytics.StandardEvents</Name>    </ProjectReference>
     <ProjectReference Include="Tizen.csproj">
       <Project>{B7F45BE6-7C0A-9F01-B99C-1660323F481A}</Project>      <Name>Tizen</Name>    </ProjectReference>
-    <ProjectReference Include="ChannelPurchase.csproj">
-      <Project>{486870BF-ED18-0061-FD96-EEA17FDB3DC2}</Project>      <Name>ChannelPurchase</Name>    </ProjectReference>
+    <ProjectReference Include="winrt.csproj">
+      <Project>{8D5673B2-9922-6F78-B247-E758FAE458E1}</Project>      <Name>winrt</Name>    </ProjectReference>
+    <ProjectReference Include="Unity.Analytics.StandardEvents.csproj">
+      <Project>{92F804DB-07BC-E27A-47FD-32297C4876FD}</Project>      <Name>Unity.Analytics.StandardEvents</Name>    </ProjectReference>
+    <ProjectReference Include="Purchasing.Common.csproj">
+      <Project>{8099ADCB-74DD-E037-A66C-A1243A43BCC8}</Project>      <Name>Purchasing.Common</Name>    </ProjectReference>
+    <ProjectReference Include="UnityStore.csproj">
+      <Project>{0A49FEEB-FE8C-1231-285E-F9C63366F943}</Project>      <Name>UnityStore</Name>    </ProjectReference>
+    <ProjectReference Include="Unity.Analytics.Tracker.csproj">
+      <Project>{999DCD02-08D1-2C17-51B6-D58E07A824C8}</Project>      <Name>Unity.Analytics.Tracker</Name>    </ProjectReference>
     <ProjectReference Include="Apple.csproj">
       <Project>{4AD2D425-A9D4-BB02-7451-267C655A5D02}</Project>      <Name>Apple</Name>    </ProjectReference>
     <ProjectReference Include="FacebookStore.csproj">
@@ -807,16 +887,12 @@
       <Project>{14F1A00A-66CA-9195-6B7F-97747C0B4AD7}</Project>      <Name>Stores</Name>    </ProjectReference>
     <ProjectReference Include="Unity.Analytics.DataPrivacy.csproj">
       <Project>{1FE53527-85E9-6548-FF65-0B2BBF2A5392}</Project>      <Name>Unity.Analytics.DataPrivacy</Name>    </ProjectReference>
-    <ProjectReference Include="Unity.Analytics.Tracker.csproj">
-      <Project>{999DCD02-08D1-2C17-51B6-D58E07A824C8}</Project>      <Name>Unity.Analytics.Tracker</Name>    </ProjectReference>
-    <ProjectReference Include="UnityStore.csproj">
-      <Project>{0A49FEEB-FE8C-1231-285E-F9C63366F943}</Project>      <Name>UnityStore</Name>    </ProjectReference>
-    <ProjectReference Include="Purchasing.Common.csproj">
-      <Project>{8099ADCB-74DD-E037-A66C-A1243A43BCC8}</Project>      <Name>Purchasing.Common</Name>    </ProjectReference>
-    <ProjectReference Include="winrt.csproj">
-      <Project>{8D5673B2-9922-6F78-B247-E758FAE458E1}</Project>      <Name>winrt</Name>    </ProjectReference>
     <ProjectReference Include="Security.csproj">
       <Project>{F5E81819-9026-3EB1-9044-718403968366}</Project>      <Name>Security</Name>    </ProjectReference>
+    <ProjectReference Include="ChannelPurchase.csproj">
+      <Project>{486870BF-ED18-0061-FD96-EEA17FDB3DC2}</Project>      <Name>ChannelPurchase</Name>    </ProjectReference>
+    <ProjectReference Include="UDP.csproj">
+      <Project>{DB3D690C-69BE-41E2-54E5-2EA669A33BB6}</Project>      <Name>UDP</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

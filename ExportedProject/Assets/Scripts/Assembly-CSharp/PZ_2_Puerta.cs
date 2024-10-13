@@ -8,21 +8,27 @@ public class PZ_2_Puerta : IT_Interactivo
 
 	private bool _abierto;
 
+	private string observacion = "Este artefacto esta incompleto";
+
 	private void Update()
 	{
-		if (!_abierto)
-		{
-			base.VisibleParaMano = IT_Cartera.cartera.Contiene<PZ_2_Cabra>();
-		}
+		base.VisibleParaMano = !_abierto;
 	}
 
 	public override void Interaccionar(Acciones accion, bool seSolto)
 	{
 		base.Interaccionar(accion, seSolto);
-		if (accion == Acciones.Recoger && IT_Cartera.cartera.Contiene<PZ_2_Cabra>())
+		if (accion == Acciones.Recoger)
 		{
-			((IT_Recogible)IT_Cartera.cartera.ElementoEnCartera).Suprimir();
-			Abrir();
+			if (IT_Cartera.cartera.Contiene<PZ_2_Cabra>())
+			{
+				((IT_Recogible)IT_Cartera.cartera.ElementoEnCartera).Suprimir();
+				Abrir();
+			}
+			else if (!_abierto)
+			{
+				UI_Canvas.canvas.observacion.Observar(observacion);
+			}
 		}
 	}
 

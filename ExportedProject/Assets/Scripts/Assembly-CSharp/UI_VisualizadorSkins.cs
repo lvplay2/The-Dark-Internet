@@ -12,6 +12,9 @@ public class UI_VisualizadorSkins : MonoBehaviour
 
 	public delegate void Visualizador_Skins_Aplicar_Cambios();
 
+	[Header("Referencias")]
+	public UI_VisualizadorLogros visualizadorLogros;
+
 	[Header("Animación")]
 	public Animator camara;
 
@@ -41,6 +44,9 @@ public class UI_VisualizadorSkins : MonoBehaviour
 	public Image fondoPanel;
 
 	public UI_Usar botonUsar;
+
+	[Header("Detalles Menu")]
+	public ES_ExtrasSkin skinGorroMenu;
 
 	[HideInInspector]
 	public bool _visualizando;
@@ -88,6 +94,7 @@ public class UI_VisualizadorSkins : MonoBehaviour
 	{
 		if (!_visualizando && base.gameObject.activeSelf)
 		{
+			visualizadorLogros.Desactivar_Logros();
 			_index = index;
 			_tipoSkin = tipoSkin;
 			StartCoroutine(Visualizar(ES_EstadoJuego.estadoJuego.DatosContenido.ObtenerSkin_Contenedor(index, tipoSkin)));
@@ -104,6 +111,7 @@ public class UI_VisualizadorSkins : MonoBehaviour
 			{
 				obj();
 			}
+			skinGorroMenu.Cargar_Skin();
 		}
 	}
 
@@ -120,7 +128,7 @@ public class UI_VisualizadorSkins : MonoBehaviour
 		}
 	}
 
-	private void Desactivar_Skins()
+	public void Desactivar_Skins()
 	{
 		meshRenderer_Gorro.gameObject.SetActive(false);
 		meshRenderer_Arma.gameObject.SetActive(false);

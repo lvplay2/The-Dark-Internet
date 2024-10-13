@@ -11,17 +11,30 @@ public class PZ_2_Baul : IT_Interactivo
 
 	public float _grados;
 
+	private string observacion = "Al parecer necesito una llave con forma de cruz";
+
 	private void Start()
 	{
-		base.VisibleParaMano = true;
+		base.VisibleParaMano = !_abierto;
 	}
 
 	public override void Interaccionar(Acciones accion, bool seSolto)
 	{
 		base.Interaccionar(accion, seSolto);
-		if (accion == Acciones.Recoger && !_abierto && IT_Cartera.cartera.Contiene<PZ_2_Llave>())
+		if (accion != 0)
 		{
-			StartCoroutine(Abrir());
+			return;
+		}
+		if (IT_Cartera.cartera.Contiene<PZ_2_Llave>())
+		{
+			if (!_abierto)
+			{
+				StartCoroutine(Abrir());
+			}
+		}
+		else if (!_abierto)
+		{
+			UI_Canvas.canvas.observacion.Observar(observacion);
 		}
 	}
 

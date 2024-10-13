@@ -17,6 +17,7 @@ public class EC_Collider : IT_Interactivo
 	private void Start()
 	{
 		base.VisibleParaOtro = true;
+		Nombre = "Escondite";
 	}
 
 	private void Awake()
@@ -38,7 +39,7 @@ public class EC_Collider : IT_Interactivo
 		switch (accion)
 		{
 		case Acciones.Entrar:
-			if (!enemigo.ObjetivoConstante.HasValue)
+			if (!enemigo.vision.JugadorEnVista || enemigo._neutralizado)
 			{
 				if (!_dentro)
 				{
@@ -63,6 +64,7 @@ public class EC_Collider : IT_Interactivo
 	{
 		camara.gameObject.SetActive(true);
 		jugador.Escondido = true;
+		jugador.Obstaculo(false);
 		jugador.fp_Controller.canControl = false;
 		jugador.camaraJugador.enabled = false;
 		brazo.Escondido(true);
@@ -80,11 +82,13 @@ public class EC_Collider : IT_Interactivo
 	{
 		camara.gameObject.SetActive(false);
 		jugador.Escondido = false;
+		jugador.Obstaculo(true);
 		jugador.fp_Controller.canControl = true;
 		jugador.camaraJugador.enabled = true;
 		brazo.Escondido(false);
 		IT_Cartera.cartera.Quitar_ElementoEnUso();
 		IT_Interactivo.AsignarAcciones(IT_Interactivo.AccionesPredeterminadas);
+		Object.FindObjectOfType<FP_Joystick>().ReseteaarJoystick();
 		_dentro = false;
 	}
 }

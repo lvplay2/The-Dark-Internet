@@ -16,7 +16,7 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: fd7928655fa8d7b489d7df93c1f49337
+  - guid: 74e2b8371ef8fd34992bfd37783318da
     name: QNrshuN
   m_AudioMixerGroupViews:
   - guids:
@@ -36,8 +36,8 @@ AudioMixerGroupController:
   m_GroupID: ce5aac42ace259143a6021dab8955aa2
   m_Children:
   - {fileID: 24300004}
-  m_Volume: a17ced3d5f0b5544cb63eede847c2795
-  m_Pitch: 69e6482bd0b01cf44aed37ad6948e929
+  m_Volume: 7e8e568dba41fb646a1da5e3d272367d
+  m_Pitch: 462d96a119d0975428ecd9d873618f13
   m_Effects:
   - {fileID: 24400002}
   m_UserColorIndex: 0
@@ -51,7 +51,7 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name:
-  m_EffectID: bb91be83f95e559469c4bdce174feb07
+  m_EffectID: 057218b6058481944a097a5df1d95365
   m_EffectName: Attenuation
   m_MixLevel: 00000000000000000000000000000000
   m_Parameters: []
@@ -68,8 +68,8 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 952270ef6c0780143a7d97b43ff77e38
   m_Children: []
-  m_Volume: fd7928655fa8d7b489d7df93c1f49337
-  m_Pitch: 5fa5d118313c6114e9020b4d8b2660a8
+  m_Volume: 74e2b8371ef8fd34992bfd37783318da
+  m_Pitch: 851475ebf8b12a841bf39f1294b28d78
   m_Effects:
   - {fileID: 24400006}
   m_UserColorIndex: 0
@@ -83,7 +83,7 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name:
-  m_EffectID: 628a6f4e50e966e48a3da4249a6b0a67
+  m_EffectID: 058b92eddfb928943acfb0b25198f28d
   m_EffectName: Attenuation
   m_MixLevel: 00000000000000000000000000000000
   m_Parameters: []
@@ -100,8 +100,8 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ce585195d238c784dbaa3576939cd2c9
   m_FloatValues:
-    a17ced3d5f0b5544cb63eede847c2795: 0
-    69e6482bd0b01cf44aed37ad6948e929: 1
-    fd7928655fa8d7b489d7df93c1f49337: 0
-    5fa5d118313c6114e9020b4d8b2660a8: 1
+    7e8e568dba41fb646a1da5e3d272367d: 0
+    462d96a119d0975428ecd9d873618f13: 1
+    74e2b8371ef8fd34992bfd37783318da: 0
+    851475ebf8b12a841bf39f1294b28d78: 1
   m_TransitionOverrides: {}

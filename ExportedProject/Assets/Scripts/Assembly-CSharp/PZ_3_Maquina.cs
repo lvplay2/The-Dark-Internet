@@ -195,6 +195,7 @@ public class PZ_3_Maquina : IT_Interactivo
 	private void DejarDeUsar()
 	{
 		IT_Interactivo.AsignarAcciones(IT_Interactivo.AccionesPredeterminadas);
+		Object.FindObjectOfType<FP_Joystick>().ReseteaarJoystick();
 		jugador.gameObject.SetActive(true);
 		camara.enabled = false;
 		IT_Cartera.cartera.Vaciar();

@@ -27,7 +27,7 @@ public class ES_Datos_Controlador
 
 	public ES_Datos datos = new ES_Datos();
 
-	private ES_Activados extrasActivados = new ES_Activados();
+	public ES_Activados extrasActivados = new ES_Activados();
 
 	private const string nombreEnDisco = "datos";
 
@@ -361,5 +361,35 @@ public class ES_Datos_Controlador
 			extrasActivados.huevoDeOro_Activado = identificador;
 			break;
 		}
+	}
+
+	public void Desactivar_Extra(int index, TipoOtro tipo)
+	{
+		switch (tipo)
+		{
+		case TipoOtro.Poder:
+			if (index == extrasActivados.poder_Activado)
+			{
+				extrasActivados.poder_Activado = 0;
+			}
+			break;
+		case TipoOtro.HuevoDeOro:
+			if (index == extrasActivados.huevoDeOro_Activado)
+			{
+				extrasActivados.huevoDeOro_Activado = 0;
+			}
+			break;
+		}
+	}
+
+	public void Registrar_Logro_Desbloqueado(int logroIndex)
+	{
+		datos.cartas_Desbloqueado[logroIndex] = true;
+		GuardarPaquete();
+	}
+
+	public bool Consultar_Logro_Desbloqueado(int logroIndex)
+	{
+		return datos.cartas_Desbloqueado[logroIndex];
 	}
 }

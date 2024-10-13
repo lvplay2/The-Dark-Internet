@@ -26,7 +26,7 @@ public class PZ_4_Marcador : IT_Interactivo
 
 	private char[] digitos_letras_2 = new char[6] { 'R', 'S', 'T', 'U', 'V', 'W' };
 
-	private char[] digitos_numeros = new char[5] { '1', '2', '3', '4', '5' };
+	private char[] digitos_numeros = new char[6] { '1', '2', '3', '4', '5', '6' };
 
 	private float grados = 60f;
 

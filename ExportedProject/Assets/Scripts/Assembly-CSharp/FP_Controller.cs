@@ -21,6 +21,21 @@ public class FP_Controller : MonoBehaviour
 
 	public float crouchHeight = 1f;
 
+	[HideInInspector]
+	public float velocidadCaminar_Inicial;
+
+	[HideInInspector]
+	public float velocidadAgachado_Inicial;
+
+	[HideInInspector]
+	public float bobFrequency_Inicial;
+
+	[HideInInspector]
+	public float bobHeight_Inicial;
+
+	[HideInInspector]
+	public float bobSwayAngle_Inicial;
+
 	public KeyCode crouchKey = KeyCode.LeftControl;
 
 	public KeyCode runKey = KeyCode.LeftShift;
@@ -110,6 +125,11 @@ public class FP_Controller : MonoBehaviour
 		controller = GetComponent<CharacterController>();
 		playerInput = GetComponent<FP_Input>();
 		footSteps = GetComponent<FP_FootSteps>();
+		velocidadCaminar_Inicial = walkSpeed;
+		velocidadAgachado_Inicial = crouchSpeed;
+		bobFrequency_Inicial = GetComponent<FP_CameraLook>().headBob.BobFrequency;
+		bobHeight_Inicial = GetComponent<FP_CameraLook>().headBob.BobHeight;
+		bobSwayAngle_Inicial = GetComponent<FP_CameraLook>().headBob.BobSwayAngle;
 	}
 
 	private void Start()
@@ -167,21 +187,6 @@ public class FP_Controller : MonoBehaviour
 				moveDirection = myTransform.TransformDirection(moveDirection) * speed;
 				playerControl = true;
 			}
-			if (!jump)
-			{
-				jumpTimer++;
-			}
-			else if (canJump && jumpTimer >= antiBunnyHopFactor)
-			{
-				moveDirection.y = jumpForce;
-				jumpTimer = 0;
-			}
-		}
-		else if (airControl && playerControl)
-		{
-			moveDirection.x = inputX.Adaptar() * speed * inputModifyFactor;
-			moveDirection.z = inputZ.Adaptar() * speed * inputModifyFactor;
-			moveDirection = myTransform.TransformDirection(moveDirection);
 		}
 		if (canControl)
 		{
@@ -214,11 +219,6 @@ public class FP_Controller : MonoBehaviour
 			}
 			break;
 		}
-		}
-		if (jumpState == 0 && CanStand() && jump && jumpTimer >= antiBunnyHopFactor)
-		{
-			PlaySound(footSteps.jumpSound, JumpLandSource);
-			jumpState++;
 		}
 		if (Mathf.Abs((base.transform.position - contactPoint).magnitude) > 2f)
 		{

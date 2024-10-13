@@ -24,6 +24,7 @@ public class UI_Boton_Tienda : MonoBehaviour, IPointerClickHandler, IEventSystem
 
 	public void CerrarTienda()
 	{
+		Debug.Log("Cerrada");
 		StopAllCoroutines();
 		tienda.alpha = 0f;
 		tienda.blocksRaycasts = false;
@@ -36,9 +37,8 @@ public class UI_Boton_Tienda : MonoBehaviour, IPointerClickHandler, IEventSystem
 	private IEnumerator ActivarTienda()
 	{
 		_activada = true;
-		audioMixerGroup.audioMixer.SetFloat("MenuAmbiente_Volumen", -20f);
-		tienda.blocksRaycasts = true;
 		float tiempo = 0f;
+		audioMixerGroup.audioMixer.SetFloat("MenuAmbiente_Volumen", -20f);
 		while (tiempo < 1f)
 		{
 			tienda.alpha = Mathf.Lerp(0f, 1f, tiempo);
@@ -46,5 +46,6 @@ public class UI_Boton_Tienda : MonoBehaviour, IPointerClickHandler, IEventSystem
 			yield return null;
 		}
 		camaraDesactivar.cullingMask = 0;
+		tienda.blocksRaycasts = true;
 	}
 }

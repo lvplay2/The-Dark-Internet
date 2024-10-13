@@ -11,6 +11,8 @@ public class JG_AnimacionMorir : MonoBehaviour
 
 	public Camera camaraJugador;
 
+	public Camera camaraJugadorDepth;
+
 	public FP_Joystick joystick;
 
 	[Header("Camara Referencias")]
@@ -81,6 +83,7 @@ public class JG_AnimacionMorir : MonoBehaviour
 		Sonidos.sonidos.sonidoFinal.Play();
 		camaraAnimacion.enabled = true;
 		camaraJugador.enabled = false;
+		camaraJugadorDepth.enabled = false;
 		while (tiempo3 < 1f)
 		{
 			camaraAnimacion.fieldOfView = Mathf.Lerp(fov_inicial, fov_final, tiempo3);
@@ -125,10 +128,12 @@ public class JG_AnimacionMorir : MonoBehaviour
 		{
 			yield return null;
 		}
+		ADS_Anuncios.anuncios.MostrarIntersticial();
 		jugador.DesbloquearMovimiento();
 		yield return new WaitForSeconds(0.1f);
 		camaraAnimacion.enabled = false;
 		camaraJugador.enabled = true;
+		camaraJugadorDepth.enabled = true;
 		copiarEjeY.copiando = true;
 		UI_Canvas.canvas.ActivarBotones(IT_Interactivo.AccionesPredeterminadas, true);
 		tiempo3 = 0f;

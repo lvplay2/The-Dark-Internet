@@ -16,7 +16,7 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: b3fe197c2436e5141ab01b1bd0e0e068
+  - guid: 189f5abeb529892469d1a4ccf3eb3fe5
     name: KLPilnJ
   m_AudioMixerGroupViews:
   - guids:
@@ -38,8 +38,8 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: 24300008}
   - {fileID: 24300004}
-  m_Volume: 510d7c76e1b10a848b1a01979f39f70d
-  m_Pitch: 76404160383a04548a6341f273e988e7
+  m_Volume: d6531217e624df14690dc136b5153bfd
+  m_Pitch: 4b6422fc3cde83348a0d1c71b7a6a70d
   m_Effects:
   - {fileID: 24400002}
   m_UserColorIndex: 0
@@ -53,7 +53,7 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name:
-  m_EffectID: 3b56418a3a85ac14dbb81a215aa672e0
+  m_EffectID: ae39f281e876ad14684d8384d1906e7a
   m_EffectName: Attenuation
   m_MixLevel: 00000000000000000000000000000000
   m_Parameters: []
@@ -70,8 +70,8 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 704d3aba4316ec84cbbdbd92c506efb8
   m_Children: []
-  m_Volume: aa323730327b53b4fb81965e6e5f3748
-  m_Pitch: 412d6708ff67b7f478ab8d1328a0cb03
+  m_Volume: ef98a4dc0d2294843be1ee2348f81d88
+  m_Pitch: 22e606de603624542ae84bbb71d80298
   m_Effects:
   - {fileID: 24400006}
   m_UserColorIndex: 0
@@ -85,7 +85,7 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name:
-  m_EffectID: 098c30981cd55fd4bbccae224359d80c
+  m_EffectID: 562943aecb4a6bd43bd386039f881040
   m_EffectName: Attenuation
   m_MixLevel: 00000000000000000000000000000000
   m_Parameters: []
@@ -102,8 +102,8 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 3acb1851ee566de42acaaacf6e98dd65
   m_Children: []
-  m_Volume: b3fe197c2436e5141ab01b1bd0e0e068
-  m_Pitch: 2bc782c3139ba6c49bafb2d91262cd7f
+  m_Volume: 189f5abeb529892469d1a4ccf3eb3fe5
+  m_Pitch: aa19ef0db790ec94d9340d7bd1614487
   m_Effects:
   - {fileID: 24400010}
   m_UserColorIndex: 0
@@ -117,7 +117,7 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name:
-  m_EffectID: 4a0d3e953b0f4bb4cb8122e86cc9a92e
+  m_EffectID: ae76e85870bc71d41a82c46989f4c481
   m_EffectName: Attenuation
   m_MixLevel: 00000000000000000000000000000000
   m_Parameters: []
@@ -134,10 +134,10 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 765becf155b648546bfd4b810310a3a7
   m_FloatValues:
-    510d7c76e1b10a848b1a01979f39f70d: 0
-    76404160383a04548a6341f273e988e7: 1
-    b3fe197c2436e5141ab01b1bd0e0e068: -10
-    2bc782c3139ba6c49bafb2d91262cd7f: 1
-    aa323730327b53b4fb81965e6e5f3748: -4.560346
-    412d6708ff67b7f478ab8d1328a0cb03: 1
+    d6531217e624df14690dc136b5153bfd: 0
+    4b6422fc3cde83348a0d1c71b7a6a70d: 1
+    189f5abeb529892469d1a4ccf3eb3fe5: -10
+    aa19ef0db790ec94d9340d7bd1614487: 1
+    ef98a4dc0d2294843be1ee2348f81d88: -4.560346
+    22e606de603624542ae84bbb71d80298: 1
   m_TransitionOverrides: {}

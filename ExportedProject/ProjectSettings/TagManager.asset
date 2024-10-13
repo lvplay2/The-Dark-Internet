@@ -17,6 +17,8 @@ TagManager:
   - ObjetoDeMaquina
   - Hueso
   - Candado
+  - BloquearDron
+  - Gato
   layers:
   - Default
   - TransparentFX
@@ -40,10 +42,10 @@ TagManager:
   - Skin_Montaje
   - Cofre_Montaje
   - ColisionDefault
-  - 
-  - 
-  - 
-  - 
+  - Gancho
+  - Outline
+  - Animal
+  - EnemigoMalla
   - 
   - 
   - 

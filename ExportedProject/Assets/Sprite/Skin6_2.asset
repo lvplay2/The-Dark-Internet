@@ -22,12 +22,12 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    66df3d751ef217f4c8eff63cf3466c39: 21300000
+    794268df599e386489aad070af49f1ab: 21300000
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
     serializedVersion: 3
-    texture: {fileID: 2800000, guid: 46a6db2a3d1320349bf9a18974ec8f47, type: 3}
+    texture: {fileID: 2800000, guid: 8f577f1a291553d498ff04bbdff8bd9c, type: 3}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
     - serializedVersion: 2
@@ -117,7 +117,7 @@ Sprite:
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 3
-    texture: {fileID: 2800000, guid: 46a6db2a3d1320349bf9a18974ec8f47, type: 3}
+    texture: {fileID: 2800000, guid: 8f577f1a291553d498ff04bbdff8bd9c, type: 3}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
     - serializedVersion: 2

@@ -6,6 +6,8 @@ public class PZ_Puerta_Final : IT_Interactivo
 {
 	public static PZ_Puerta_Final puerta_Final;
 
+	public JG_Jugador jugador;
+
 	public AudioMixerGroup audioTotal;
 
 	public BoxCollider colliderPuerta;
@@ -38,6 +40,7 @@ public class PZ_Puerta_Final : IT_Interactivo
 
 	private void Start()
 	{
+		audioTotal.audioMixer.SetFloat("AudioGeneral_Volumen", -0f);
 		puzles_Desbloqueados = 0;
 		puzlesTotales = ObtenerPuzlesTotales();
 		Desactivar_Todos();
@@ -125,11 +128,15 @@ public class PZ_Puerta_Final : IT_Interactivo
 
 	public bool Puerta_Desbloqueada()
 	{
+		Debug.Log(puzles_Desbloqueados);
 		return puzles_Desbloqueados >= puzlesTotales;
 	}
 
 	private IEnumerator Abrir_Puerta()
 	{
+		ES_Logros_Activador.logrosActivador.Comprobar_Logro_11_Tiempo_Limite(jugador.tiempoDeJuego);
+		ES_Logros_Activador.logrosActivador.Comprobar_Logro_12_Experto();
+		ES_Logros_Activador.logrosActivador.Comprobar_Logro_14_Gatos_Fantasmas();
 		enemigo.SetActive(false);
 		fondoNegro.SetActive(true);
 		audioTotal.audioMixer.SetFloat("AudioGeneral_Volumen", -80f);

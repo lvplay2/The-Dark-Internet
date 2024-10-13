@@ -33,6 +33,8 @@ public class PZ_Casete : IT_Recogible
 
 	private void ReproducirCasete()
 	{
+		ES_Logros_Activador.logrosActivador.Cinta_Escuchada(numeroCasete);
+		ES_Logros_Activador.logrosActivador.Comprobar_Logro_15_Todas_Las_Cintas();
 		CancelInvoke("DetenerCasete");
 		ES_EstadoEscena.estadoEscena.audioGlobal.audioMixer.SetFloat("AudioGeneral_Volumen", -20f);
 		jugador.audioJugador.clip = Sonidos.sonidos.audios_casete[numeroCasete];

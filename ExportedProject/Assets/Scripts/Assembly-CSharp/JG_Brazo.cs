@@ -54,7 +54,7 @@ public class JG_Brazo : MonoBehaviour
 
 	private void LateUpdate()
 	{
-		base.transform.rotation = Quaternion.Lerp(base.transform.rotation, camara.rotation, Mathf.Lerp(0f, 1f, suavidad * Time.deltaTime));
+		base.transform.rotation = Quaternion.Lerp(base.transform.rotation, camara.rotation, suavidad * Time.deltaTime);
 		base.transform.position = camara.position;
 	}
 

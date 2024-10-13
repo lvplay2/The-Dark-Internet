@@ -22,6 +22,8 @@ public class DR_Dron : IT_Recogible
 
 	public float s_Rotacion;
 
+	private bool _bloquearRotacion;
+
 	private float _Velocidad;
 
 	private float _Rotacion;
@@ -142,12 +144,23 @@ public class DR_Dron : IT_Recogible
 
 	private void Update()
 	{
-		audioSource.volume = Mathf.Lerp(audioSource.volume, (inputY != 0) ? _volumenFinal : 0f, 2f * Time.deltaTime);
+		if (Usando || !(audioSource.volume <= 0.01f))
+		{
+			audioSource.volume = Mathf.Lerp(audioSource.volume, (inputY != 0) ? _volumenFinal : 0f, 2f * Time.deltaTime);
+			if (_bloquearRotacion)
+			{
+				rigidbody.constraints = (RigidbodyConstraints)80;
+			}
+			else
+			{
+				rigidbody.constraints = constraints;
+			}
+		}
 	}
 
 	private void FixedUpdate()
 	{
-		if (!_recodigo)
+		if ((_recodigo || Usando) && !_recodigo)
 		{
 			_Velocidad = Mathf.Lerp(_Velocidad, velocidad * (float)inputY, Mathf.SmoothStep(0f, 1f, s_Velocidad / 100f));
 			_Rotacion = Mathf.Lerp(_Rotacion, torque * (float)inputX, Mathf.SmoothStep(0f, 1f, s_Rotacion / 100f));
@@ -157,6 +170,18 @@ public class DR_Dron : IT_Recogible
 			rigidbody.velocity = base.transform.TransformDirection(direction);
 			rigidbody.rotation = Quaternion.Euler(rigidbody.rotation.eulerAngles.x, rigidbody.rotation.eulerAngles.y, 0f);
 			rigidbody.angularVelocity = new Vector3(0f, _Rotacion, 0f) * (_Velocidad / velocidad);
+		}
+	}
+
+	private void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.CompareTag(ES_Tags.BloquearDron))
+		{
+			_bloquearRotacion = true;
+		}
+		else
+		{
+			_bloquearRotacion = false;
 		}
 	}
 }

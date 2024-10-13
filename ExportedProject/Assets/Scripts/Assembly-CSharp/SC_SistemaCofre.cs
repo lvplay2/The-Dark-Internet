@@ -5,9 +5,9 @@ public class SC_SistemaCofre : MonoBehaviour
 {
 	public enum Pildora
 	{
-		Roja = 0,
-		Azul = 1,
-		Amarilla = 2
+		Skin = 0,
+		Poder = 1,
+		HuevoDeOro = 2
 	}
 
 	private class Skin
@@ -61,7 +61,12 @@ public class SC_SistemaCofre : MonoBehaviour
 
 	private List<Skin> secciones_Skins = new List<Skin>();
 
+	[HideInInspector]
+	public int[] poderes = new int[0];
+
 	private UI_VisualizadorSkins visualizadorSkins;
+
+	public UI_Logro[] logros;
 
 	private void Awake()
 	{
@@ -82,11 +87,12 @@ public class SC_SistemaCofre : MonoBehaviour
 		secciones_Skins.Add(new Skin(3, new List<bool>(ES_EstadoJuego.estadoJuego.DatosControlador.datos.skinsMuñeco_Desbloqueado)));
 		secciones_Skins.Add(new Skin(4, new List<bool>(ES_EstadoJuego.estadoJuego.DatosControlador.datos.skinsPantallaCine_Desbloqueado)));
 		secciones_Skins.Add(new Skin(5, new List<bool>(ES_EstadoJuego.estadoJuego.DatosControlador.datos.skinsDron_Desbloqueado)));
+		poderes = new int[3] { 7, 8, 9 };
 	}
 
 	public Pildora GenerarPildora()
 	{
-		return (Pildora)SC_SistemaSeleccion.GenerarIndex(new float[3] { 0.8f, 0.15f, 0.05f });
+		return (Pildora)SC_SistemaSeleccion.GenerarIndex(new float[3] { 0.85f, 0.15f, 0f });
 	}
 
 	public ES_Skin_Contenedor GenerarSkin(Skin_Informaicion skin_Informaicion = null)

@@ -40,7 +40,7 @@ public class UI_Observacion : MonoBehaviour
 		imagen.enabled = true;
 		texto.enabled = true;
 		texto.text = t;
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(3.5f);
 		RestaurarTexto();
 	}
 

@@ -7,20 +7,20 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Escenas/EscenaCargando.unity
-    guid: 2ca0840d3c80f304593540b3a3149ec3
+    guid: 2195585066820154d80e03d24ba604b7
   - enabled: 1
     path: Assets/Escenas/EscenaMenu.unity
-    guid: 6937932668ccf534d8029f281b01d956
+    guid: 4500d1356b80abe459d3561398e18407
   - enabled: 1
     path: Assets/Escenas/EscenaComic.unity
-    guid: ea79d692641ef62469890403d3fcf206
+    guid: 690d7988af4c1a04cb45a26fc8251942
   - enabled: 1
     path: Assets/Escenas/EscenaJuego.unity
-    guid: f069b048591cbc24bb4af553c14e0d37
-  - enabled: 1
-    path: Assets/Escenas/EscenaGanar.unity
-    guid: 2828581b51ef6ce43ad52d14c649e97e
+    guid: a9ac1865aaadf8742b2c3344989d4d74
   - enabled: 1
     path: Assets/Escenas/EscenaMorir.unity
-    guid: 490fb00f027bc9e498956514e7a9add2
+    guid: 3f11e5b5006315641a4ee1f186670b40
+  - enabled: 1
+    path: Assets/Escenas/EscenaGanar.unity
+    guid: 46e7d347f110edd48991c6ee871382ae
   m_configObjects: {}

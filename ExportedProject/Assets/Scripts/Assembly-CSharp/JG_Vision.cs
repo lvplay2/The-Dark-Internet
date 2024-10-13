@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JG_Vision : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class JG_Vision : MonoBehaviour
 
 	[HideInInspector]
 	public IT_Interactivo ElementoEnVista;
+
+	public Text TextoNombre;
 
 	private void Update()
 	{
@@ -26,9 +29,11 @@ public class JG_Vision : MonoBehaviour
 		{
 			iT_Interactivo = hitInfo.transform.GetComponent<IT_Interactivo>();
 			ElementoEnVista = ((iT_Interactivo != null) ? iT_Interactivo : null);
+			TextoNombre.text = ((ElementoEnVista != null) ? ElementoEnVista.Nombre : string.Empty);
 		}
 		else
 		{
+			TextoNombre.text = string.Empty;
 			ElementoEnVista = null;
 		}
 	}

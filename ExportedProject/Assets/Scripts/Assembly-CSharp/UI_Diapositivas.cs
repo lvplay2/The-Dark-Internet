@@ -33,8 +33,13 @@ public class UI_Diapositivas : MonoBehaviour
 
 	public Comic_Cerro comic_Cerro;
 
+	private bool saltado;
+
+	private bool _omitir;
+
 	private void Start()
 	{
+		audioMusicaComic.audioMixer.SetFloat("MusicaComic_Volumen", 0f);
 		StartCoroutine(Diapositivas());
 	}
 
@@ -53,7 +58,7 @@ public class UI_Diapositivas : MonoBehaviour
 		int diapositivaActual = 0;
 		bool iniciar = true;
 		float tiempoEntreDiapositivas = 0f;
-		while (true)
+		do
 		{
 			if (((Input.GetMouseButtonDown(0) || iniciar) && detectarToques) || tiempoEntreDiapositivas > 5f)
 			{
@@ -80,15 +85,32 @@ public class UI_Diapositivas : MonoBehaviour
 			tiempoEntreDiapositivas += Time.deltaTime;
 			yield return null;
 		}
+		while (!saltado);
 		if (cargarEscena)
 		{
-			StartCoroutine(CargarEscenaPrincipal());
+			CargarEscenaJuego(false);
 			yield break;
 		}
 		Comic_Cerro obj = comic_Cerro;
 		if (obj != null)
 		{
 			obj();
+		}
+	}
+
+	public void CargarEscenaJuego(bool desdeBoton)
+	{
+		if (desdeBoton && !_omitir)
+		{
+			StopAllCoroutines();
+		}
+		if (!_omitir)
+		{
+			StartCoroutine(CargarEscenaPrincipal());
+		}
+		if (desdeBoton)
+		{
+			_omitir = true;
 		}
 	}
 

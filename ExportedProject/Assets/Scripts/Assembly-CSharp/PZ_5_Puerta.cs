@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PZ_5_Puerta : MonoBehaviour
+public class PZ_5_Puerta : IT_Interactivo
 {
 	public Collider collider;
 
@@ -9,6 +9,22 @@ public class PZ_5_Puerta : MonoBehaviour
 	public GameObject cierre;
 
 	private bool _destruido;
+
+	private string observacion = "Este candado parece estar muy oxidado, quizas pueda destruirlo";
+
+	private void Start()
+	{
+		base.VisibleParaMano = true;
+	}
+
+	public override void Interaccionar(Acciones accion, bool seSolto)
+	{
+		base.Interaccionar(accion, seSolto);
+		if (!_destruido)
+		{
+			UI_Canvas.canvas.observacion.Observar(observacion);
+		}
+	}
 
 	public void Destruir()
 	{
@@ -30,6 +46,7 @@ public class PZ_5_Puerta : MonoBehaviour
 			component2.angularVelocity = default(Vector3).VectorRandom(-3f, 3f);
 			cierre.GetComponent<Collider>().enabled = true;
 			candado.GetComponent<Collider>().enabled = true;
+			base.VisibleParaMano = false;
 			_destruido = true;
 		}
 	}

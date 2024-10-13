@@ -46,6 +46,7 @@ public class IT_Cajon : IT_Interactivo
 	private void Start()
 	{
 		_posicionInicial = base.transform.localPosition;
+		Nombre = "Cajon";
 	}
 
 	private void Update()

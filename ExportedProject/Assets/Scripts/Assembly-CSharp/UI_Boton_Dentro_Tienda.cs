@@ -18,9 +18,6 @@ public class UI_Boton_Dentro_Tienda : MonoBehaviour, IPointerClickHandler, IEven
 
 	public Color colorDeseleccionado;
 
-	[Header("Sonidos")]
-	public AudioSource seleccionar_1;
-
 	private void Start()
 	{
 		if (seleccionadoPorDefecto)
@@ -36,7 +33,6 @@ public class UI_Boton_Dentro_Tienda : MonoBehaviour, IPointerClickHandler, IEven
 
 	private void Seleccionar()
 	{
-		seleccionar_1.Play();
 		estaSeccion.SetActive(true);
 		otraSeccion.SetActive(false);
 		for (int i = 0; i < coloresBotonEstaSeccion.Length; i++)

@@ -20,4 +20,10 @@ public class EN_Voces_Contenido
 	public EN_Voces_Grupo[] romperTelefono;
 
 	public EN_Voces_Grupo[] escucharCrujido;
+
+	public EN_Voces_Grupo[] gatoAtaca;
+
+	public EN_Voces_Grupo[] gatoMuere;
+
+	public EN_Voces_Grupo[] patrullarConGatos;
 }

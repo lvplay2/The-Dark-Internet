@@ -12,9 +12,14 @@ public class UI_Boton_Empezar : MonoBehaviour, IPointerClickHandler, IEventSyste
 
 	private Coroutine cerrar_Panel_Empezar;
 
+	public GameObject flechaVolver;
+
+	private bool yaPreisonado;
+
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		AbrirPanelEmpezar();
+		AbrirPanelEmpezar(true);
+		ADS_Anuncios.anuncios.MostrarIntersticial();
 	}
 
 	public void FlechaCerrar()
@@ -22,8 +27,9 @@ public class UI_Boton_Empezar : MonoBehaviour, IPointerClickHandler, IEventSyste
 		CerrarPanelEmpezar();
 	}
 
-	public void AbrirPanelEmpezar()
+	public void AbrirPanelEmpezar(bool conFlechaVolver)
 	{
+		flechaVolver.SetActive(conFlechaVolver);
 		if (abrir_Panel_Empezar != null)
 		{
 			StopCoroutine(abrir_Panel_Empezar);

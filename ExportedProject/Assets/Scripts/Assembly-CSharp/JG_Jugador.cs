@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class JG_Jugador : MonoBehaviour
+public class JG_Jugador : MonoBehaviour, IN_IPoder
 {
 	[Header("Referencias")]
 	public JG_Vision vision;
@@ -30,22 +30,118 @@ public class JG_Jugador : MonoBehaviour
 
 	public Animator camaraAnimator;
 
+	[Header("Power-Ups Referencias")]
+	public Camera camaraOutline;
+
+	public IT_Remarcar[] objetosParaDestacar;
+
 	[HideInInspector]
 	public bool Reactivado;
 
 	[HideInInspector]
 	public bool Muerto;
 
-	private bool _escondido;
-
 	[HideInInspector]
 	public bool Escondido;
+
+	[HideInInspector]
+	public float superVelocidad_velocidadCaminar = 3.75f;
+
+	[HideInInspector]
+	public float superVelocidad_velocidadAgachado = 1.8f;
+
+	[HideInInspector]
+	public bool SuperVelocidad_Activado;
+
+	[HideInInspector]
+	public float tiempoDeJuego;
 
 	private bool _recolocando;
 
 	private void Awake()
 	{
 		Inicializar();
+	}
+
+	private void Start()
+	{
+		Escondido = false;
+		UI_Canvas.canvas.DesactivarBotones();
+		UI_Canvas_Dinamico.canvas_dinamico.Aparecer(UI_Canvas_Dinamico.canvas_dinamico.fondoNegro, 0.75f, true, 1.35f);
+		Invoke("CerrarPuerta", 1f);
+		jugadorAnimacionMorir.camaraAnimacion.enabled = true;
+		jugadorAnimacionMorir.camaraJugador.enabled = false;
+		jugadorAnimacionMorir.animator.Play("Inicio");
+		Invoke("CambiarCamara", 2.6f);
+		InicializarPoderes();
+	}
+
+	private void CerrarPuerta()
+	{
+		AudioSource.PlayClipAtPoint(Sonidos.sonidos.puerta_cerrandose_2, base.transform.position + new Vector3(2f, 0f, 0f), 0.4f);
+	}
+
+	private void CambiarCamara()
+	{
+		UI_Canvas.canvas.ActivarBotones(IT_Interactivo.AccionesPredeterminadas, true);
+		jugadorAnimacionMorir.camaraJugador.enabled = true;
+		jugadorAnimacionMorir.camaraAnimacion.enabled = false;
+	}
+
+	private void Update()
+	{
+		tiempoDeJuego += Time.deltaTime;
+	}
+
+	private void InicializarPoderes()
+	{
+		int poder_Activado = ES_EstadoJuego.estadoJuego.DatosControlador.extrasActivados.poder_Activado;
+		StartCoroutine(Activar_Poder(poder_Activado));
+	}
+
+	public IEnumerator Activar_Poder(int poder)
+	{
+		yield return null;
+		switch (poder)
+		{
+		case 7:
+		{
+			DesactivarPoder(poder);
+			for (int j = 0; j < objetosParaDestacar.Length; j++)
+			{
+				objetosParaDestacar[j].gameObject.SetActive(true);
+				objetosParaDestacar[j].Activar();
+			}
+			camaraOutline.enabled = true;
+			yield return new WaitForSeconds(120f);
+			for (int i = 0; i < 8; i++)
+			{
+				camaraOutline.enabled = !camaraOutline.enabled;
+				yield return new WaitForSeconds(0.3f);
+			}
+			for (int k = 0; k < objetosParaDestacar.Length; k++)
+			{
+				objetosParaDestacar[k].Desactivar();
+			}
+			camaraOutline.enabled = false;
+			break;
+		}
+		case 8:
+			DesactivarPoder(poder);
+			SuperVelocidad_Activado = true;
+			fp_Controller.walkSpeed = superVelocidad_velocidadCaminar;
+			fp_Controller.crouchSpeed = superVelocidad_velocidadAgachado;
+			yield return new WaitForSeconds(120f);
+			fp_Controller.walkSpeed = fp_Controller.velocidadCaminar_Inicial;
+			fp_Controller.crouchSpeed = fp_Controller.velocidadAgachado_Inicial;
+			SuperVelocidad_Activado = false;
+			break;
+		}
+	}
+
+	private void DesactivarPoder(int poder)
+	{
+		ES_EstadoJuego.estadoJuego.DatosControlador.Desactivar_Extra(poder, ES_Datos_Controlador.TipoOtro.Poder);
 	}
 
 	private void Inicializar()

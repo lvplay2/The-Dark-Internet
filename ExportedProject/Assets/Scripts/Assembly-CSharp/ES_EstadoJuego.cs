@@ -31,7 +31,7 @@ public class ES_EstadoJuego : MonoBehaviour
 
 	private ES_Datos_Controlador datosControlador = new ES_Datos_Controlador();
 
-	public Dificultad? dificultad { get; private set; } = Dificultad.Extremo;
+	public Dificultad? dificultad { get; private set; } = Dificultad.Fantasma;
 
 
 	public PreferenciasEnemigo? preferenciasEnemigo { get; private set; } = PreferenciasEnemigo.General;
@@ -69,6 +69,7 @@ public class ES_EstadoJuego : MonoBehaviour
 		}
 		InicializarEstadoJuego();
 		AnunciosControlador.Inicializar();
+		Application.targetFrameRate = 300;
 	}
 
 	private void InicializarEstadoJuego()

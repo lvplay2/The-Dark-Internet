@@ -65,6 +65,16 @@ public class Sonidos : MonoBehaviour
 
 	public AudioClip puerta_abriendose_y_rechinando;
 
+	public AudioClip puerta_cerrandose_2;
+
+	public AudioClip razguñada;
+
+	public AudioClip ronroneo;
+
+	public AudioClip gato_atacar;
+
+	public AudioClip maullido;
+
 	public AudioClip[] piso_cruje;
 
 	public AudioClip[] caida_botella;

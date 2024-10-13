@@ -650,12 +650,18 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.Analytics.StandardEvents.csproj">
-      <Project>{92F804DB-07BC-E27A-47FD-32297C4876FD}</Project>      <Name>Unity.Analytics.StandardEvents</Name>    </ProjectReference>
     <ProjectReference Include="Tizen.csproj">
       <Project>{B7F45BE6-7C0A-9F01-B99C-1660323F481A}</Project>      <Name>Tizen</Name>    </ProjectReference>
-    <ProjectReference Include="ChannelPurchase.csproj">
-      <Project>{486870BF-ED18-0061-FD96-EEA17FDB3DC2}</Project>      <Name>ChannelPurchase</Name>    </ProjectReference>
+    <ProjectReference Include="winrt.csproj">
+      <Project>{8D5673B2-9922-6F78-B247-E758FAE458E1}</Project>      <Name>winrt</Name>    </ProjectReference>
+    <ProjectReference Include="Unity.Analytics.StandardEvents.csproj">
+      <Project>{92F804DB-07BC-E27A-47FD-32297C4876FD}</Project>      <Name>Unity.Analytics.StandardEvents</Name>    </ProjectReference>
+    <ProjectReference Include="Purchasing.Common.csproj">
+      <Project>{8099ADCB-74DD-E037-A66C-A1243A43BCC8}</Project>      <Name>Purchasing.Common</Name>    </ProjectReference>
+    <ProjectReference Include="UnityStore.csproj">
+      <Project>{0A49FEEB-FE8C-1231-285E-F9C63366F943}</Project>      <Name>UnityStore</Name>    </ProjectReference>
+    <ProjectReference Include="Unity.Analytics.Tracker.csproj">
+      <Project>{999DCD02-08D1-2C17-51B6-D58E07A824C8}</Project>      <Name>Unity.Analytics.Tracker</Name>    </ProjectReference>
     <ProjectReference Include="Apple.csproj">
       <Project>{4AD2D425-A9D4-BB02-7451-267C655A5D02}</Project>      <Name>Apple</Name>    </ProjectReference>
     <ProjectReference Include="FacebookStore.csproj">
@@ -664,16 +670,12 @@
       <Project>{14F1A00A-66CA-9195-6B7F-97747C0B4AD7}</Project>      <Name>Stores</Name>    </ProjectReference>
     <ProjectReference Include="Unity.Analytics.DataPrivacy.csproj">
       <Project>{1FE53527-85E9-6548-FF65-0B2BBF2A5392}</Project>      <Name>Unity.Analytics.DataPrivacy</Name>    </ProjectReference>
-    <ProjectReference Include="Unity.Analytics.Tracker.csproj">
-      <Project>{999DCD02-08D1-2C17-51B6-D58E07A824C8}</Project>      <Name>Unity.Analytics.Tracker</Name>    </ProjectReference>
-    <ProjectReference Include="UnityStore.csproj">
-      <Project>{0A49FEEB-FE8C-1231-285E-F9C63366F943}</Project>      <Name>UnityStore</Name>    </ProjectReference>
-    <ProjectReference Include="Purchasing.Common.csproj">
-      <Project>{8099ADCB-74DD-E037-A66C-A1243A43BCC8}</Project>      <Name>Purchasing.Common</Name>    </ProjectReference>
-    <ProjectReference Include="winrt.csproj">
-      <Project>{8D5673B2-9922-6F78-B247-E758FAE458E1}</Project>      <Name>winrt</Name>    </ProjectReference>
     <ProjectReference Include="Security.csproj">
       <Project>{F5E81819-9026-3EB1-9044-718403968366}</Project>      <Name>Security</Name>    </ProjectReference>
+    <ProjectReference Include="ChannelPurchase.csproj">
+      <Project>{486870BF-ED18-0061-FD96-EEA17FDB3DC2}</Project>      <Name>ChannelPurchase</Name>    </ProjectReference>
+    <ProjectReference Include="UDP.csproj">
+      <Project>{DB3D690C-69BE-41E2-54E5-2EA669A33BB6}</Project>      <Name>UDP</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

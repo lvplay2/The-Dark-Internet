@@ -14,9 +14,7 @@ public class ES_Datos_Contenido : MonoBehaviour
 
 	public ES_Skin_Contenedor[] skinsDron;
 
-	public ES_Poder_Contenedor[] poderes;
-
-	public ES_HuevosDeOro_Contenedor[] huevosDeOro;
+	public ES_Logro_Contenedor[] logros;
 
 	public ES_Skin_Contenedor ObtenerSkin_Contenedor(int index, ES_Datos_Controlador.TipoSkin tipoSkin)
 	{

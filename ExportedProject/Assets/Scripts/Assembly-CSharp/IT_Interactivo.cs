@@ -46,7 +46,10 @@ public class IT_Interactivo : MonoBehaviour
 		Acciones.Llamar
 	};
 
-	private static int[] accionesActivadas = new int[0];
+	private static int[] accionesActivadas;
+
+	[TextArea(2, 2)]
+	public string Nombre = string.Empty;
 
 	public static Acciones[] acciones { get; private set; }
 
@@ -60,6 +63,12 @@ public class IT_Interactivo : MonoBehaviour
 
 	public virtual void Interaccionar(Acciones accion, bool seSolto)
 	{
+	}
+
+	private void Awake()
+	{
+		acciones = new Acciones[0];
+		accionesActivadas = new int[0];
 	}
 
 	public static void AsignarAcciones(Acciones[] acciones)

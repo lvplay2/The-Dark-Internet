@@ -11,20 +11,27 @@ public class MC_Muñeco : MonoBehaviour
 
 	public AudioClip sonido;
 
-	private const float probabilidad = 25f;
+	private const float probabilidad = 50f;
+
+	private bool _enFuncionamiento;
 
 	private Coroutine alertarEnemigo;
 
+	private void Start()
+	{
+		_enFuncionamiento = ES_EstadoJuego.estadoJuego.dificultad != ES_EstadoJuego.Dificultad.Facil;
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag(ES_Tags.Jugador) && (float)Random.Range(0, 100) <= 25f)
+		if (_enFuncionamiento && other.gameObject.CompareTag(ES_Tags.Jugador) && (float)Random.Range(0, 100) <= 50f)
 		{
 			if (alertarEnemigo != null)
 			{
 				StopCoroutine(alertarEnemigo);
 			}
 			alertarEnemigo = StartCoroutine(AlertarEnemigo(other.transform.position));
-			switch (0)
+			switch (Random.Range(0, 2))
 			{
 			case 0:
 				animator.Play("Alertar_1-1");

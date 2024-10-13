@@ -17,6 +17,8 @@ public class ES_EscenaCargando : MonoBehaviour
 
 	public string escenaCargar;
 
+	public bool cargarConDelay;
+
 	private void Start()
 	{
 		if (cargarAlIniciar)

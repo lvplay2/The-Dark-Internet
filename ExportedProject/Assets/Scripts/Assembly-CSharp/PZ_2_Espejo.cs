@@ -38,7 +38,12 @@ public class PZ_2_Espejo : IT_Interactivo
 
 	private string observacion_2 = "Este objeto no parece servir aqui";
 
-	private string observacion_3 = "Ya no necesito hacer este conjuro";
+	private string observacion_3 = "Ya no necesito hacer este conjuro, tengo la llave del otro espejo";
+
+	private void Awake()
+	{
+		_primerEspejoTirado = false;
+	}
 
 	public override void Interaccionar(Acciones accion, bool seSolto)
 	{

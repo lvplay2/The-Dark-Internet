@@ -20,6 +20,11 @@ public class PZ_3_Maquina_Moneda : IT_Interactivo
 		base.VisibleParaMano = true;
 	}
 
+	private void Start()
+	{
+		Nombre = "Maquina Arcade";
+	}
+
 	public override void Interaccionar(Acciones accion, bool seSolto)
 	{
 		base.Interaccionar(accion, seSolto);

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -120,7 +121,7 @@ public static class ST_Utilidades
 		RaycastHit hitInfo;
 		Physics.Raycast(vector + new Vector3(0f, aumentarDistanciaVertical ? 0.25f : 0f, 0f), -Vector3.up, out hitInfo, 5f, LayerMask.GetMask(ES_Tags.Estatico, ES_Tags.Escalera));
 		NavMeshHit hit;
-		if (hitInfo.collider != null && NavMesh.SamplePosition(hitInfo.point, out hit, 1.5f, -1))
+		if (hitInfo.collider != null && NavMesh.SamplePosition(hitInfo.point, out hit, 1.5f, 1))
 		{
 			return hit.position + new Vector3(0f, 0.1f, 0f);
 		}
@@ -164,5 +165,40 @@ public static class ST_Utilidades
 			return 0f;
 		}
 		return f;
+	}
+
+	public static T GetCopyOf<T>(this Component comp, T other) where T : Component
+	{
+		Type type = comp.GetType();
+		if (type != other.GetType())
+		{
+			return null;
+		}
+		BindingFlags bindingAttr = BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+		PropertyInfo[] properties = type.GetProperties(bindingAttr);
+		foreach (PropertyInfo propertyInfo in properties)
+		{
+			if (propertyInfo.CanWrite)
+			{
+				try
+				{
+					propertyInfo.SetValue(comp, propertyInfo.GetValue(other, null), null);
+				}
+				catch
+				{
+				}
+			}
+		}
+		FieldInfo[] fields = type.GetFields(bindingAttr);
+		foreach (FieldInfo fieldInfo in fields)
+		{
+			fieldInfo.SetValue(comp, fieldInfo.GetValue(other));
+		}
+		return comp as T;
+	}
+
+	public static T Añadir<T>(this GameObject go, T toAdd) where T : Component
+	{
+		return go.AddComponent<T>().GetCopyOf(toAdd);
 	}
 }

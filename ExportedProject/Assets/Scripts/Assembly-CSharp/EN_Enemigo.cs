@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EN_Enemigo : MonoBehaviour
+public class EN_Enemigo : MonoBehaviour, IN_IPoder
 {
 	public enum Estados
 	{
@@ -26,44 +26,47 @@ public class EN_Enemigo : MonoBehaviour
 		EscucharMuñeco = 2,
 		EscucharTelefono = 3,
 		RomperTelefono = 4,
-		EscucharCrujido = 5
+		EscucharCrujido = 5,
+		GatoAtaca = 6,
+		GatoMuere = 7,
+		PatrullaConGatos = 8
 	}
 
-	private const float c_facil_velocidad_Patrulla = 0.9f;
+	private const float c_facil_velocidad_Patrulla = 1.2f;
 
-	private const float c_facil_velocidad_Persecucion = 1.3f;
+	private const float c_facil_velocidad_Persecucion = 1.5f;
 
-	private const float c_facil_tiempo_Alerta = 7f;
+	private const float c_facil_tiempo_Alerta = 6f;
 
 	private const float c_facil_tiempo_Neutralizacion = 60f;
 
 	private const float c_facil_tiempo_Abrir_Puertas = 1.1f;
 
-	private const float c_normal_velocidad_Patrulla = 1.15f;
+	private const float c_normal_velocidad_Patrulla = 1.45f;
 
-	private const float c_normal_velocidad_Persecucion = 1.4f;
+	private const float c_normal_velocidad_Persecucion = 1.7f;
 
-	private const float c_normal_tiempo_Alerta = 6.25f;
+	private const float c_normal_tiempo_Alerta = 5.5f;
 
 	private const float c_normal_tiempo_Neutralizacion = 45f;
 
 	private const float c_normal_tiempo_Abrir_Puertas = 0.9f;
 
-	private const float c_dificil_velocidad_Patrulla = 1.3f;
+	private const float c_dificil_velocidad_Patrulla = 1.55f;
 
-	private const float c_dificil_velocidad_Persecucion = 1.5f;
+	private const float c_dificil_velocidad_Persecucion = 1.8f;
 
-	private const float c_dificil_tiempo_Alerta = 5.5f;
+	private const float c_dificil_tiempo_Alerta = 5f;
 
 	private const float c_dificil_tiempo_Neutralizacion = 30f;
 
 	private const float c_dificil_tiempo_Abrir_Puertas = 0.8f;
 
-	private const float c_extremo_velocidad_Patrulla = 1.5f;
+	private const float c_extremo_velocidad_Patrulla = 1.7f;
 
-	private const float c_extremo_velocidad_Persecucion = 1.7f;
+	private const float c_extremo_velocidad_Persecucion = 2f;
 
-	private const float c_extremo_tiempo_Alerta = 5f;
+	private const float c_extremo_tiempo_Alerta = 4.5f;
 
 	private const float c_extremo_tiempo_Neutralizacion = 20f;
 
@@ -77,8 +80,6 @@ public class EN_Enemigo : MonoBehaviour
 
 	private bool _persecucionObligatoria;
 
-	private bool _jugadorEnZonaEsferica;
-
 	private bool _comenzoAMoverse;
 
 	private Vector3 _posicionInicial;
@@ -86,6 +87,8 @@ public class EN_Enemigo : MonoBehaviour
 	public Vector3 _posicionLuegoDeMatarAlJugador;
 
 	private NavMeshPath _ruta;
+
+	private float ultimaVezAtaco;
 
 	[Header("Referencias")]
 	public JG_Jugador jugador;
@@ -100,12 +103,15 @@ public class EN_Enemigo : MonoBehaviour
 
 	public EN_Mandibula mandibula;
 
-	public ST_AudioHD audioHD;
-
 	public Animator animator;
 
 	[Header("Configuración")]
 	public float distanciaMinimaAtacar;
+
+	[Header("Power-Ups Referencias")]
+	public Camera camaraOutline;
+
+	public SkinnedMeshRenderer[] mallasOutline;
 
 	private Coroutine estadoPatrulla;
 
@@ -142,31 +148,31 @@ public class EN_Enemigo : MonoBehaviour
 		switch (value)
 		{
 		case ES_EstadoJuego.Dificultad.Facil:
-			velocidad_Patrulla = 0.9f;
-			velocidad_Persecucion = 1.3f;
-			tiempo_Alerta = 7f;
+			velocidad_Patrulla = 1.2f;
+			velocidad_Persecucion = 1.5f;
+			tiempo_Alerta = 6f;
 			tiempo_Neutralizacion = 60f;
 			tiempo_Abrir_Puertas = 1.1f;
 			break;
 		case ES_EstadoJuego.Dificultad.Normal:
-			velocidad_Patrulla = 1.15f;
-			velocidad_Persecucion = 1.4f;
-			tiempo_Alerta = 6.25f;
+			velocidad_Patrulla = 1.45f;
+			velocidad_Persecucion = 1.7f;
+			tiempo_Alerta = 5.5f;
 			tiempo_Neutralizacion = 45f;
 			tiempo_Abrir_Puertas = 0.9f;
 			break;
 		case ES_EstadoJuego.Dificultad.Dificil:
-			velocidad_Patrulla = 1.3f;
-			velocidad_Persecucion = 1.5f;
-			tiempo_Alerta = 5.5f;
+			velocidad_Patrulla = 1.55f;
+			velocidad_Persecucion = 1.8f;
+			tiempo_Alerta = 5f;
 			tiempo_Neutralizacion = 30f;
 			tiempo_Abrir_Puertas = 0.8f;
 			break;
 		case ES_EstadoJuego.Dificultad.Extremo:
 		case ES_EstadoJuego.Dificultad.Fantasma:
-			velocidad_Patrulla = 1.5f;
-			velocidad_Persecucion = 1.7f;
-			tiempo_Alerta = 5f;
+			velocidad_Patrulla = 1.7f;
+			velocidad_Persecucion = 2f;
+			tiempo_Alerta = 4.5f;
 			tiempo_Neutralizacion = 20f;
 			tiempo_Abrir_Puertas = 0.65f;
 			break;
@@ -182,6 +188,7 @@ public class EN_Enemigo : MonoBehaviour
 	private void Start()
 	{
 		InicializarEnemigo();
+		InicializarPoderes();
 		_posicionInicial = base.transform.position;
 	}
 
@@ -189,10 +196,46 @@ public class EN_Enemigo : MonoBehaviour
 	{
 		InicializarCaracteristicas();
 		_ruta = new NavMeshPath();
-		Invoke("ComenzarAPatrullar", 20f);
+		if (ES_EstadoJuego.estadoJuego.dificultad == ES_EstadoJuego.Dificultad.Fantasma || ES_EstadoJuego.estadoJuego.DatosControlador.extrasActivados.poder_Activado == 9)
+		{
+			ComenzarAPatrullar();
+		}
+		else
+		{
+			Invoke("ComenzarAPatrullar", 20f);
+		}
 	}
 
-	private void ComenzarAPatrullar()
+	private void InicializarPoderes()
+	{
+		int poder_Activado = ES_EstadoJuego.estadoJuego.DatosControlador.extrasActivados.poder_Activado;
+		StartCoroutine(Activar_Poder(poder_Activado));
+	}
+
+	public IEnumerator Activar_Poder(int poder)
+	{
+		if (poder == 9)
+		{
+			for (int j = 0; j < mallasOutline.Length; j++)
+			{
+				mallasOutline[j].gameObject.SetActive(true);
+			}
+			camaraOutline.enabled = true;
+			yield return new WaitForSeconds(120f);
+			for (int i = 0; i < 8; i++)
+			{
+				camaraOutline.enabled = !camaraOutline.enabled;
+				yield return new WaitForSeconds(0.3f);
+			}
+			for (int k = 0; k < mallasOutline.Length; k++)
+			{
+				mallasOutline[k].gameObject.SetActive(false);
+			}
+			camaraOutline.enabled = false;
+		}
+	}
+
+	public void ComenzarAPatrullar()
 	{
 		if (!_comenzoAMoverse)
 		{
@@ -269,7 +312,7 @@ public class EN_Enemigo : MonoBehaviour
 		}
 	}
 
-	public void Ruido(Vector3 posicion, EventoEspecial evento)
+	public void Ruido(Vector3 posicion, EventoEspecial evento, bool forzarCambioVoz = false)
 	{
 		Vector3? vector = posicion.PosicionDePies(true);
 		Vector3 vector2 = (vector.HasValue ? vector.Value : base.transform.position);
@@ -277,6 +320,7 @@ public class EN_Enemigo : MonoBehaviour
 		{
 			if (estadoActual != Estados.Persecucion)
 			{
+				Debug.Log("Aqui 3");
 				ActualizarDestino_NoConstante(vector2);
 				ActivarEstado(Estados.Persecucion, evento);
 			}
@@ -285,6 +329,11 @@ public class EN_Enemigo : MonoBehaviour
 				ActualizarDestino_NoConstante(vector2);
 				voces.Actualizar_EventoEspecial(evento);
 				voces.ReproducirVoz(false, 100f);
+			}
+			else if (forzarCambioVoz)
+			{
+				voces.Actualizar_EventoEspecial(evento);
+				voces.ReproducirVoz(true, 100f);
 			}
 		}
 	}
@@ -332,13 +381,14 @@ public class EN_Enemigo : MonoBehaviour
 
 	private void ComprobarVision_Jugador()
 	{
-		if (vision.JugadorEnVista || (vision.JugadorPerdido && _jugadorEnZonaEsferica))
+		if (vision.JugadorEnVista && !_atacando)
 		{
 			Vector3? vector = vision.jugador.transform.position.PosicionDePies(false);
 			Vector3 v = (vector.HasValue ? vector.Value : base.transform.position);
 			ActualizarDestino_Constante(v);
 			if (estadoActual != Estados.Persecucion)
 			{
+				Debug.Log("Aqui 2");
 				ActivarEstado(Estados.Persecucion, EventoEspecial.Nulo);
 			}
 			voces.MusicaPersecucion(true);
@@ -351,6 +401,7 @@ public class EN_Enemigo : MonoBehaviour
 			ActualizarDestino_NoConstante(v2);
 			if (estadoActual != Estados.Persecucion)
 			{
+				Debug.Log("Aqui 1");
 				ActivarEstado(Estados.Persecucion, EventoEspecial.Nulo);
 			}
 		}
@@ -392,6 +443,7 @@ public class EN_Enemigo : MonoBehaviour
 	private IEnumerator Atacar_Corrutina()
 	{
 		_atacando = true;
+		ultimaVezAtaco = Time.time;
 		PausarMovimiento();
 		jugador.Es_Atacado();
 		ES_Controles.controles.Click(IT_Interactivo.Acciones.DejarEnSuelo, false);
@@ -409,17 +461,25 @@ public class EN_Enemigo : MonoBehaviour
 		yield return new WaitForSeconds(0.215f);
 		ReproducirAnimacion(Accion.Atacar);
 		mandibula.Abrir();
+		voces.Actualizar_EventoEspecial(EventoEspecial.Nulo);
 		voces.Actualizar_Accion(Accion.Atacar);
 		voces.ReproducirVoz(true, 100f);
 		yield return new WaitForSeconds(3.2f);
 		_atacando = false;
+		vision.ObjetivoAlcanzado();
 		agente.enabled = false;
 		base.transform.position = _posicionLuegoDeMatarAlJugador;
 		agente.enabled = true;
 		PausarMovimiento();
 		yield return new WaitForSeconds(1f);
-		vision.ObjetivoAlcanzado();
-		Invoke("ContinuarPatrullando_SinVoz", 8f);
+		if (ES_EstadoJuego.estadoJuego.DatosControlador.extrasActivados.poder_Activado == 9)
+		{
+			ContinuarPatrullando_SinVoz();
+		}
+		else
+		{
+			Invoke("ContinuarPatrullando_SinVoz", 8f);
+		}
 	}
 
 	private IEnumerator Atacar_Sanamente_Corrutina()
@@ -450,7 +510,7 @@ public class EN_Enemigo : MonoBehaviour
 	private bool RutaPosible(Vector3 posicion)
 	{
 		agente.CalculatePath(posicion, _ruta);
-		if (_ruta.status == NavMeshPathStatus.PathPartial)
+		if (_ruta.status == NavMeshPathStatus.PathPartial || _ruta.status == NavMeshPathStatus.PathInvalid)
 		{
 			return false;
 		}
@@ -506,6 +566,7 @@ public class EN_Enemigo : MonoBehaviour
 		agente.updatePosition = false;
 		agente.updateRotation = false;
 		_neutralizado = true;
+		ObjetivoConstante = null;
 	}
 
 	private IEnumerator EstadoPatrulla()
@@ -563,6 +624,7 @@ public class EN_Enemigo : MonoBehaviour
 			yield return new WaitForSeconds(0.5f);
 			ReanudarMovimiento();
 			ReproducirAnimacion(Accion.Patrullar);
+			accion_AbrirPuerta = null;
 		}
 	}
 
@@ -581,10 +643,9 @@ public class EN_Enemigo : MonoBehaviour
 
 	public void Informar_AbrirPuerta(IT_Puerta puerta)
 	{
-		if (accion_AbrirPuerta != null)
+		if (accion_AbrirPuerta == null)
 		{
-			StopCoroutine(accion_AbrirPuerta);
+			accion_AbrirPuerta = StartCoroutine(Accion_AbrirPuerta(puerta));
 		}
-		accion_AbrirPuerta = StartCoroutine(Accion_AbrirPuerta(puerta));
 	}
 }

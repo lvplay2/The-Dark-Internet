@@ -25,6 +25,10 @@ public class EN_Vision : MonoBehaviour
 
 	public LayerMask layer;
 
+	private Vector3 posI;
+
+	private Vector3 posF;
+
 	public bool JugadorEnVista { get; private set; }
 
 	public bool JugadorPerdido { get; private set; }
@@ -46,6 +50,11 @@ public class EN_Vision : MonoBehaviour
 		return !(Mathf.Abs(Mathf.DeltaAngle(base.transform.eulerAngles.y, quaternion.eulerAngles.y)) > gradosDeVision);
 	}
 
+	private void OnDrawGizmos()
+	{
+		Gizmos.DrawLine(posI, posF);
+	}
+
 	private void CalcularVision()
 	{
 		RaycastHit hitInfo;
@@ -56,6 +65,8 @@ public class EN_Vision : MonoBehaviour
 			{
 				if (hitInfo.transform.tag == ES_Tags.Jugador && !_perderDeVista && !_ignorarJugador && !jugador.Escondido)
 				{
+					posI = ojos.position;
+					posF = pechoJugador.position;
 					JugadorEnVista = true;
 					JugadorPerdido = false;
 					JugadorDisponible = true;
@@ -102,5 +113,6 @@ public class EN_Vision : MonoBehaviour
 	{
 		ObjetivoPerdido = null;
 		JugadorPerdido = false;
+		_perdidoDeVista = true;
 	}
 }

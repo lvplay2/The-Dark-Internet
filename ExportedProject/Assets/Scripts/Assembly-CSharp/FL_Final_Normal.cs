@@ -85,6 +85,7 @@ public class FL_Final_Normal : MonoBehaviour
 
 	private void RedireccionarEscenaMenu()
 	{
+		audioMixer.audioMixer.SetFloat("EscenaGanar_Normal_Volumen", -7f);
 		Object.FindObjectOfType<ES_EscenaCargando>().CargarEscenaAsyncronica("EscenaMenu");
 	}
 }

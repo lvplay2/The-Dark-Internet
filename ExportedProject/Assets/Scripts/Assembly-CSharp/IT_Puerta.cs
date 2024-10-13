@@ -188,6 +188,7 @@ public class IT_Puerta : IT_Interactivo
 			base.transform.localEulerAngles = ObtenerRotacion();
 			_abierta = true;
 		}
+		Nombre = "Puerta";
 	}
 
 	private void FixedUpdate()
@@ -215,11 +216,11 @@ public class IT_Puerta : IT_Interactivo
 
 	private void Update()
 	{
-		if (_abierta)
+		if (_abierta && !collider.isTrigger)
 		{
 			collider.isTrigger = true;
 		}
-		else if (Math.Abs(base.transform.localEulerAngles.y.Angulo()) < 1f && !_jugadorAtravesado)
+		else if (Math.Abs(base.transform.localEulerAngles.y.Angulo()) < 1f && !_jugadorAtravesado && collider.isTrigger)
 		{
 			collider.isTrigger = false;
 		}
@@ -235,6 +236,14 @@ public class IT_Puerta : IT_Interactivo
 		{
 			enemigo.Informar_AbrirPuerta(this);
 		}
+		if (other.CompareTag(ES_Tags.Gato))
+		{
+			GT_Gato component = other.GetComponent<GT_Gato>();
+			if (component != null)
+			{
+				component.AbrirPuerta(this);
+			}
+		}
 	}
 
 	private void OnCollisionEnter(Collision coll)
@@ -242,6 +251,14 @@ public class IT_Puerta : IT_Interactivo
 		if (coll.gameObject.CompareTag(ES_Tags.Enemigo) && interaccionaConEnemigo)
 		{
 			enemigo.Informar_AbrirPuerta(this);
+		}
+		if (coll.gameObject.CompareTag(ES_Tags.Gato))
+		{
+			GT_Gato component = coll.gameObject.GetComponent<GT_Gato>();
+			if (component != null)
+			{
+				component.AbrirPuerta(this);
+			}
 		}
 	}
 

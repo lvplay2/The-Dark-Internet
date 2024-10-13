@@ -37,4 +37,10 @@ public class ES_Tags : MonoBehaviour
 	public static readonly string Hueso = "Hueso";
 
 	public static readonly string Candado = "Candado";
+
+	public static readonly string BloquearDron = "BloquearDron";
+
+	public static readonly string Gato = "Gato";
+
+	public static readonly string Animal = "Animal";
 }

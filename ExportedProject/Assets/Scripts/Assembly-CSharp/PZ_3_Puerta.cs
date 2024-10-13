@@ -32,6 +32,8 @@ public class PZ_3_Puerta : IT_Interactivo
 
 	public Transform posicionPeluche;
 
+	private string observacion = "Una caja sellada, los colores no parecen alternarse por igual";
+
 	private void Start()
 	{
 		StartCoroutine(Parpadear());
@@ -41,27 +43,23 @@ public class PZ_3_Puerta : IT_Interactivo
 	{
 		if (_desbloqueado)
 		{
+			base.VisibleParaMano = false;
 			return;
 		}
+		base.VisibleParaMano = true;
 		if (Vector3.Distance(jugador.position, base.transform.position) < 2f)
 		{
-			if (IT_Cartera.cartera.Contiene<PZ_3_Peluche>())
+			if (IT_Cartera.cartera.Contiene<PZ_3_Peluche>() && !_tapaAbierta)
 			{
-				if (!_tapaAbierta)
-				{
-					AbrirTapa();
-				}
-				base.VisibleParaMano = true;
+				AbrirTapa();
 			}
+			return;
 		}
-		else
+		if (_tapaAbierta && !_escaneando)
 		{
-			if (_tapaAbierta && !_escaneando)
-			{
-				CerrarTapa();
-			}
-			base.VisibleParaMano = false;
+			CerrarTapa();
 		}
+		base.VisibleParaMano = false;
 	}
 
 	private void AbrirTapa()
@@ -80,13 +78,24 @@ public class PZ_3_Puerta : IT_Interactivo
 	public override void Interaccionar(Acciones accion, bool seSolto)
 	{
 		base.Interaccionar(accion, seSolto);
-		if (accion == Acciones.Recoger && !_desbloqueado && IT_Cartera.cartera.Contiene<PZ_3_Peluche>() && !_escaneando)
+		if (accion != 0 || _desbloqueado)
 		{
-			if (escanear != null)
+			return;
+		}
+		if (IT_Cartera.cartera.Contiene<PZ_3_Peluche>())
+		{
+			if (!_escaneando)
 			{
-				StopCoroutine(escanear);
+				if (escanear != null)
+				{
+					StopCoroutine(escanear);
+				}
+				escanear = StartCoroutine(Escanear());
 			}
-			escanear = StartCoroutine(Escanear());
+		}
+		else if (!_escaneando && !_desbloqueado)
+		{
+			UI_Canvas.canvas.observacion.Observar(observacion);
 		}
 	}
 

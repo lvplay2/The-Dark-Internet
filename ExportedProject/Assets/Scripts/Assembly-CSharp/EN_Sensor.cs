@@ -17,10 +17,6 @@ public class EN_Sensor : MonoBehaviour
 		{
 			if (dron.Usando && !_entroEnZona)
 			{
-				if (enemigo.audioHD.enabled)
-				{
-					enemigo.audioHD.enabled = false;
-				}
 				enemigo.voces.Actualizar_EventoEspecial(EN_Enemigo.EventoEspecial.VerDron);
 				enemigo.voces.ReproducirVoz(true, 100f);
 				_entroEnZona = true;
@@ -28,10 +24,6 @@ public class EN_Sensor : MonoBehaviour
 		}
 		else
 		{
-			if (!enemigo.audioHD.enabled)
-			{
-				enemigo.audioHD.enabled = true;
-			}
 			_entroEnZona = false;
 		}
 	}
