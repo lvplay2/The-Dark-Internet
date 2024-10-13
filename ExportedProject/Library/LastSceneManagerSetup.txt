@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Escenas/EscenaMenu.unity
+  isLoaded: 1
+  isActive: 1
