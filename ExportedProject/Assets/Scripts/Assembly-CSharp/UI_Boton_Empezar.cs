@@ -19,7 +19,6 @@ public class UI_Boton_Empezar : MonoBehaviour, IPointerClickHandler, IEventSyste
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		AbrirPanelEmpezar(true);
-		ADS_Anuncios.anuncios.MostrarIntersticial();
 	}
 
 	public void FlechaCerrar()

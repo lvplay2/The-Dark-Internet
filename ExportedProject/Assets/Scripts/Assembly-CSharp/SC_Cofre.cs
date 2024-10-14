@@ -52,11 +52,6 @@ public class SC_Cofre : MonoBehaviour
 
 	public void Activar()
 	{
-		if (ADS_Anuncios.anuncios.VideoRecompensadoDisponible())
-		{
-			ADS_Anuncios.anuncios.MostrarVideoRecompensado();
-			VideoRecompensadoCerrado(true);
-		}
 	}
 
 	public void Desactivar()

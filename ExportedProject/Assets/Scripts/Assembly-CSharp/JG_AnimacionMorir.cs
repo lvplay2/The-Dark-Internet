@@ -128,7 +128,6 @@ public class JG_AnimacionMorir : MonoBehaviour
 		{
 			yield return null;
 		}
-		ADS_Anuncios.anuncios.MostrarIntersticial();
 		jugador.DesbloquearMovimiento();
 		yield return new WaitForSeconds(0.1f);
 		camaraAnimacion.enabled = false;

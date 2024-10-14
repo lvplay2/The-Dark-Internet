@@ -15,7 +15,6 @@ public class UI_Boton_Cofre : MonoBehaviour, IPointerClickHandler, IEventSystemH
 
 	private void Update()
 	{
-		boton.enabled = ADS_Anuncios.anuncios.VideoRecompensadoDisponible();
 	}
 
 	private void Start()

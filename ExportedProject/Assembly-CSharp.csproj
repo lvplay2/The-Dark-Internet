@@ -55,12 +55,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Assembly-CSharp\ActDificultad.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\AdEventBehaviour.cs" />
-     <Compile Include="Assets\Scripts\Assembly-CSharp\ADS_Anuncios.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Advertisements.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Advertiser.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\AlphaControll.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\AN_PingPongColor.cs" />
-     <Compile Include="Assets\Scripts\Assembly-CSharp\AnunciosAviso.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Archivo.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Bake.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\BannerPosition.cs" />
@@ -107,8 +105,10 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_EstadoEscena.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_EstadoJuego.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_ExtrasSkin.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\ES_HuevosDeOro_Contenedor.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Logro_Contenedor.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Logros_Activador.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Poder_Contenedor.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Skin_Contenedor.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ES_Tags.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\EV_Desactivar.cs" />
@@ -259,6 +259,7 @@
      <Compile Include="Assets\Scripts\Assembly-CSharp\Skin_Informaicion.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\Sonidos.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ST_Audio.cs" />
+     <Compile Include="Assets\Scripts\Assembly-CSharp\ST_AudioHD.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ST_Capturador.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ST_Datos.cs" />
      <Compile Include="Assets\Scripts\Assembly-CSharp\ST_Utilidades.cs" />
